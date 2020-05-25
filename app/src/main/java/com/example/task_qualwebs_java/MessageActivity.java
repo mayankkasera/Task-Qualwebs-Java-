@@ -3,10 +3,14 @@ package com.example.task_qualwebs_java;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -49,6 +53,7 @@ public class MessageActivity extends AppCompatActivity {
     private RecyclerView recyclerview;
     private ImageView send,attachment;
     private EditText messageEdt;
+    private final int PERMISSION_ALL = 2534;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,13 +73,27 @@ public class MessageActivity extends AppCompatActivity {
             }
         });
 
+        final String[] PERMISSIONS = {
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+                android.Manifest.permission.WRITE_EXTERNAL_STORAGE
+        };
+
         attachment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent image = new Intent();
-                image.setType("image/*");
-                image.setAction(Intent.ACTION_GET_CONTENT);
-                startActivityForResult(Intent.createChooser(image,"Select Image"),GALLERY_PICK);
+
+
+                if(!hasPermissions(MessageActivity.this, PERMISSIONS)){
+                    ActivityCompat.requestPermissions(MessageActivity.this, PERMISSIONS, PERMISSION_ALL);
+                }
+                else {
+                    Intent image = new Intent();
+                    image.setType("image/*");
+                    image.setAction(Intent.ACTION_GET_CONTENT);
+                    startActivityForResult(Intent.createChooser(image,"Select Image"),GALLERY_PICK);
+
+                }
+
             }
         });
 
@@ -190,6 +209,44 @@ public class MessageActivity extends AppCompatActivity {
 
     }
 
+
+    public static boolean hasPermissions(Context context, String... permissions) {
+        if (context != null && permissions != null) {
+            for (String permission : permissions) {
+                if (ActivityCompat.checkSelfPermission(context, permission) != PackageManager.PERMISSION_GRANTED) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String permissionsList[], int[] grantResults) {
+
+        switch (requestCode) {
+            case PERMISSION_ALL:{
+                if (grantResults.length > 0) {
+                    boolean flag = true;
+                    for (int i = 0 ; i < permissionsList.length ; i++ ) {
+                        if(grantResults[i] == PackageManager.PERMISSION_DENIED){
+                            flag = false;
+                        }
+                    }
+
+                    if(flag){
+                        Intent image = new Intent();
+                        image.setType("image/*");
+                        image.setAction(Intent.ACTION_GET_CONTENT);
+                        startActivityForResult(Intent.createChooser(image,"Select Image"),GALLERY_PICK);
+                    }
+                    // Show permissionsDenied
+
+                }
+                return;
+            }
+        }
+    }
 
 
 
