@@ -1,28 +1,22 @@
-package com.example.task_qualwebs_java;
+package com.example.task_qualwebs_java.ui.activity;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.Manifest;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.database.FirebaseDatabase;
+import com.example.task_qualwebs_java.R;
 
-public class MainActivity extends AppCompatActivity {
+public class ChatActivity extends AppCompatActivity {
 
     Button User1,User2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_chat);
 
 
         User1 = findViewById(R.id.chatAsUser1);
@@ -31,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         User1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, MessageActivity.class);
+                Intent i = new Intent(ChatActivity.this, MessageActivity.class);
                 i.putExtra("data","User1");
                 startActivity(i);
             }
@@ -40,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         User2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, MessageActivity.class);
+                Intent i = new Intent(ChatActivity.this, MessageActivity.class);
                 i.putExtra("data","User2");
                 startActivity(i);
             }

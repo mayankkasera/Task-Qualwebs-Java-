@@ -1,4 +1,4 @@
-package com.example.task_qualwebs_java;
+package com.example.task_qualwebs_java.utils;
 
 import android.content.ContentUris;
 import android.content.Context;
