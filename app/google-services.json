@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "975477236589",
+    "firebase_url": "https://testchat-7adcc.firebaseio.com",
+    "project_id": "testchat-7adcc",
+    "storage_bucket": "testchat-7adcc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:975477236589:android:5d6c373c3026373c78f064",
+        "android_client_info": {
+          "package_name": "com.example.task_qualwebs_java"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "975477236589-g5r93ie5i8e29uceuodicvhcf0v2mrkk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQMvKzcUHKhARJurUdg9Y4lc3ztN32AHk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "975477236589-g5r93ie5i8e29uceuodicvhcf0v2mrkk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
