@@ -8,20 +8,44 @@ public class Chat {
     String type;
     String sender;
     String reciver;
+    String message_type;
+    String upload_status;
+    String url;
+    String uri;
 
     public Chat() {
     }
 
-    @Override
-    public String toString() {
-        return "Chat{" +
-                "message='" + message + '\'' +
-                ", status='" + status + '\'' +
-                ", time=" + time +
-                ", type='" + type + '\'' +
-                ", sender='" + sender + '\'' +
-                ", reciver='" + reciver + '\'' +
-                '}';
+    public String getUri() {
+        return uri;
+    }
+
+    public void setUri(String uri) {
+        this.uri = uri;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getUpload_status() {
+        return upload_status;
+    }
+
+    public void setUpload_status(String upload_status) {
+        this.upload_status = upload_status;
+    }
+
+    public String getMessage_type() {
+        return message_type;
+    }
+
+    public void setMessage_type(String message_type) {
+        this.message_type = message_type;
     }
 
     public String getMessage() {

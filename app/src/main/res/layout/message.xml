@@ -27,17 +27,32 @@
                android:layout_height="match_parent">
 
                <androidx.cardview.widget.CardView
-                   android:visibility="gone"
+                   android:id="@+id/reciveImgLayout"
                    app:cardCornerRadius="10dp"
                    android:layout_margin="5dp"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content">
-                   <ImageView
-                       android:scaleType="centerCrop"
-                       android:src="@drawable/preview"
-                       android:layout_width="200dp"
-                       android:layout_height="200dp"
-                       android:id="@+id/reciveImage"/>
+
+
+                   <RelativeLayout
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content">
+
+                       <ImageView
+                           android:scaleType="centerCrop"
+                           android:src="@drawable/blur"
+                           android:layout_width="200dp"
+                           android:layout_height="200dp"
+                           android:id="@+id/reciveImage"/>
+
+                       <ProgressBar
+                           android:layout_centerInParent="true"
+                           android:layout_width="40dp"
+                           android:layout_height="40dp"
+                           android:id="@+id/reciveImgPro"/>
+
+
+                   </RelativeLayout>
 
                </androidx.cardview.widget.CardView>
 
@@ -97,18 +112,33 @@
                 android:layout_height="wrap_content">
 
                 <androidx.cardview.widget.CardView
-                    android:visibility="gone"
+                    android:id="@+id/sendImgLayout"
                     android:layout_margin="5dp"
                     app:cardCornerRadius="10dp"
                     android:layout_width="200dp"
                     android:layout_height="200dp">
 
-                    <ImageView
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/preview"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:id="@+id/sendImage"/>
+
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/blur"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/sendImage"/>
+
+                        <ProgressBar
+                            android:id="@+id/sendImgPro"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_centerInParent="true"/>
+
+                    </RelativeLayout>
+
 
                 </androidx.cardview.widget.CardView>
 
